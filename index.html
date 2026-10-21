@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AZ-900 Smart Quiz Builder</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎯 AZ-900 Smart Quiz Builder</h1>
+      <p>Microsoft Azure Fundamentals — Practice, Track, Succeed</p>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <h3>Overall Readiness</h3>
+        <div class="value" id="overallReadiness">0%</div>
+        <div class="sub" id="readinessStatus">Start practicing!</div>
+      </div>
+      <div class="stat-card">
+        <h3>Quizzes Taken</h3>
+        <div class="value" id="quizzesTaken">0</div>
+        <div class="sub" id="quizzesSub">No quizzes yet</div>
+      </div>
+      <div class="stat-card">
+        <h3>Best Score</h3>
+        <div class="value" id="bestScore">—</div>
+        <div class="sub" id="bestSub">Aim for 70%+</div>
+      </div>
+      <div class="stat-card">
+        <h3>Questions Answered</h3>
+        <div class="value" id="totalAnswered">0</div>
+        <div class="sub" id="answeredSub">Keep going!</div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-view="dashboard">📊 Dashboard</button>
+      <button class="tab" data-view="quiz">📝 Take Quiz</button>
+      <button class="tab" data-view="results">🏆 Results</button>
+      <button class="tab" data-view="history">📜 History</button>
+    </div>
+
+    <!-- Dashboard View -->
+    <div class="view active" id="dashboard">
+      <div class="card">
+        <h2>📚 Exam Domains & Readiness</h2>
+        <p class="muted-text">
+          Track your progress across the three AZ-900 exam domains. Pass mark: 700/1000 (≈70%).
+        </p>
+        <div class="domain-list" id="domainList"></div>
+      </div>
+
+      <div class="card">
+        <h2>🚀 Quick Start</h2>
+        <p class="muted-text">Choose a quiz mode to begin:</p>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="startQuiz('full')">
+            <h3>🎯 Full Mock Exam</h3>
+            <p>15 random questions from all domains</p>
+          </div>
+          <div class="quiz-option" onclick="startQuiz('cloud')">
+            <h3>☁️ Cloud Concepts</h3>
+            <p>Focus on cloud models & types (25-30%)</p>
+          </div>
+          <div class="quiz-option" onclick="startQuiz('architecture')">
+            <h3>🏗️ Architecture & Services</h3>
+            <p>Azure core services & solutions (35-40%)</p>
+          </div>
+          <div class="quiz-option" onclick="startQuiz('security')">
+            <h3>🔒 Security & Privacy</h3>
+            <p>Workloads, security & privacy (30-35%)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz View -->
+    <div class="view" id="quiz">
+      <div class="card" id="quizCard">
+        <div class="question-container" id="questionContainer"></div>
+      </div>
+    </div>
+
+    <!-- Results View -->
+    <div class="view" id="results">
+      <div class="card" id="resultsCard">
+        <div class="empty-state">
+          <div class="icon">📝</div>
+          <h3>No results yet</h3>
+          <p>Complete a quiz to see your results here.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- History View -->
+    <div class="view" id="history">
+      <div class="card">
+        <div class="history-header">
+          <h2>📜 Quiz History</h2>
+          <button class="btn btn-secondary" onclick="clearHistory()">Clear History</button>
+        </div>
+        <div class="history-list" id="historyList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
