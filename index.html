@@ -3,14 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AZ-900 Smart Quiz Builder</title>
+  <title>AZ-900 Smart Quiz Builder (Unofficial)</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Unofficial Disclaimer Banner -->
+  <div class="disclaimer-banner" id="disclaimerBanner">
+    <span>⚠️ <strong>Unofficial Practice App</strong> — Not affiliated with or endorsed by Microsoft Corporation.</span>
+    <button class="banner-close" id="bannerClose" aria-label="Close disclaimer">✕</button>
+  </div>
+
   <div class="container">
     <header>
       <h1>🎯 AZ-900 Smart Quiz Builder</h1>
-      <p>Microsoft Azure Fundamentals — Practice, Track, Succeed</p>
+      <p>Unofficial practice tool for Microsoft Azure Fundamentals exam prep</p>
     </header>
 
     <!-- Stats Bar -->
@@ -107,6 +113,23 @@
         <div class="history-list" id="historyList"></div>
       </div>
     </div>
+
+    <!-- Footer with Trademark Notice -->
+    <footer class="app-footer">
+      <p>
+        <strong>AZ-900 Smart Quiz Builder</strong> is an <em>unofficial</em> practice application created for educational purposes.
+      </p>
+      <p>
+        Microsoft®, Azure®, and AZ-900® are registered trademarks of <strong>Microsoft Corporation</strong>.
+        This app is not affiliated with, endorsed by, or sponsored by Microsoft.
+      </p>
+      <p>
+        For official exam information, visit
+        <a href="https://learn.microsoft.com/certifications/azure-fundamentals/" target="_blank" rel="noopener">
+          Microsoft Learn
+        </a>.
+      </p>
+    </footer>
   </div>
 
   <script src="script.js"></script>

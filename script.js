@@ -279,6 +279,26 @@ function saveState() {
 }
 
 /* ============================================================
+   DISCLAIMER BANNER
+   ============================================================ */
+function initDismissibleBanner() {
+  const banner = document.getElementById('disclaimerBanner');
+  const closeBtn = document.getElementById('bannerClose');
+  if (!banner || !closeBtn) return;
+
+  // Check if user already dismissed
+  if (localStorage.getItem('az900_disclaimer_acknowledged')) {
+    banner.classList.add('hidden');
+    return;
+  }
+
+  closeBtn.addEventListener('click', () => {
+    banner.classList.add('hidden');
+    localStorage.setItem('az900_disclaimer_acknowledged', 'true');
+  });
+}
+
+/* ============================================================
    TAB NAVIGATION
    ============================================================ */
 document.querySelectorAll('.tab').forEach(tab => {
@@ -537,7 +557,6 @@ function updateStatsBar() {
     const ds = s.domainStats[d];
     if (ds.total > 0) {
       const pct = (ds.correct / ds.total) * 100;
-      // Use rough weight from mid-point of range
       const weights = { cloud: 27.5, architecture: 37.5, security: 32.5 };
       weightedSum += pct * weights[d];
       totalWeight += weights[d];
@@ -651,6 +670,7 @@ function shuffleArray(arr) {
    INITIALIZATION
    ============================================================ */
 loadState();
+initDismissibleBanner();
 updateStatsBar();
 renderDomains();
 renderHistory();
